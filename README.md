@@ -21,7 +21,7 @@ Make sure you select `1Password Interchange Format (.1pif)` as your file format.
 **Remember this file is not encrypted so make sure you securely delete it afterwards**
 
 
-### Running / Checking your passwords
+## Running / Checking your passwords
 
 1. Clone / Download the repo
 2. Install dependencies `pipenv install`

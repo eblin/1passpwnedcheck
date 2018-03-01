@@ -1,6 +1,7 @@
 import csv
 import hashlib
 import json
+import os
 import re
 from time import sleep
 
@@ -32,6 +33,9 @@ class PwnedCli:
         if not pif_file:
             return print('Please specify a file first.'
                          '\nUse --file=path/to/file.1pif')
+        pif_file = pif_file.rstrip('/')
+        pif_file = os.path.expanduser(
+            pif_file) if '~/' in pif_file else pif_file
         results = []
         pif_json = self._pif_to_json(pif_file)
         try:
@@ -80,7 +84,7 @@ class PwnedCli:
         except KeyError:
             raise
         finally:
-            report_filename = pif_file.replace('.', '_') + '.csv'
+            report_filename = '%s.csv' % pif_file
             self._create_report(report_filename, results)
 
     @staticmethod
@@ -90,7 +94,8 @@ class PwnedCli:
         :param path: .1pif file path
         :return: JSON
         """
-        with open('%s/data.1pif' % path, encoding='utf-8') as pif:
+        data_pif_path = os.path.join(path, 'data.1pif')
+        with open(data_pif_path, encoding='utf-8') as pif:
             data = pif.read()
 
         cleaned_data = re.sub('(?m)^\*\*\*.*\*\*\*\s+', '', data)
