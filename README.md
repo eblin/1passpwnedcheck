@@ -9,6 +9,17 @@ Make sure you have the following installed
 
 - Python 3
 - [pipenv](https://docs.pipenv.org/)
+- 1password .1pif exported file.
+
+#### Export your 1password items
+You can either export only login items OR all items up to you.
+
+```File > Export > All Items``` OR ```File > Export > Selected Items```
+
+Make sure you select `1Password Interchange Format (.1pif)` as your file format.
+
+**Remember this file is not encrypted so make sure you securely delete it afterwards**
+
 
 ### Running / Checking your passwords
 
@@ -22,6 +33,9 @@ python cli.py --file=path/to/your/passwords.1pif
 ```
 
 Now just wait for script to finish and check the `.csv` report generated  at the end to see how many passwords you need to go change!
+
+**The csv file generated is not encrypted and contains your passwords so make sure you securely delete it afterwards!**
+
 
 ![screenshot1](screenshot1.png)
 ![screenshot2](screenshot2.png)
