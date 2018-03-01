@@ -29,8 +29,20 @@ Make sure you select `1Password Interchange Format (.1pif)` as your file format.
 3. Run the following command
 
 ```
-python cli.py --file=path/to/your/passwords.1pif
+python cli.py --file=path/to/your/filename.1pif
 ```
+
+**NOTE:** 
+A `.1pif` file  is just a directory with all your stuff in it so make sure you pass the path to the directory NOT the data.1pif file located inside.
+
+Example structure of a `.1pif` document
+
+```
+├── filename.1pif
+│   └── data.1pif
+```
+
+---
 
 Now just wait for script to finish and check the `.csv` report generated  at the end to see how many passwords you need to go change!
 
